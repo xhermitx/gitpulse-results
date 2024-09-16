@@ -18,8 +18,8 @@ type Candidate struct {
 	TopRepoStars            int
 	TopContributedRepo      string
 	TopContributedRepoStars int
-	Languages               []string
-	Topics                  []string
+	Languages               int
+	Topics                  int
 	JobId                   string
 	Score                   int
 }

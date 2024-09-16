@@ -21,8 +21,8 @@ func TopNCandidates(list []*Candidate, n int) []*Candidate {
 		sumFollowers += c.TotalFollowers
 		sumTopRepoStars += c.TopRepoStars
 		sumTopContributedRepoStars += c.TopContributedRepoStars
-		sumLanguages += len(c.Languages)
-		sumTopics += len(c.Topics)
+		sumLanguages += c.Languages
+		sumTopics += c.Topics
 	}
 
 	h := &MinHeap{}
@@ -33,8 +33,8 @@ func TopNCandidates(list []*Candidate, n int) []*Candidate {
 			float64(c.TotalFollowers)/float64(sumFollowers)*5 +
 			float64(c.TopRepoStars)/float64(sumTopRepoStars)*25 +
 			float64(c.TopContributedRepoStars)/float64(sumTopContributedRepoStars)*25 +
-			float64(len(c.Languages))/float64(sumLanguages)*15 +
-			float64(len(c.Topics))/float64(sumTopics)*10))
+			float64(c.Languages)/float64(sumLanguages)*15 +
+			float64(c.Topics)/float64(sumTopics)*10))
 
 		fmt.Println("Score: ", c.Score)
 
