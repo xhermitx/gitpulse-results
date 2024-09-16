@@ -25,14 +25,14 @@ type Candidate struct {
 }
 
 // Minheap to maintaing the top n candidates with highest scores
-type MinHeap []*Candidate
+type MinHeap []Candidate
 
 func (h MinHeap) Len() int           { return len(h) }
 func (h MinHeap) Less(i, j int) bool { return h[i].Score < h[j].Score }
 func (h MinHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 
 func (h *MinHeap) Push(x interface{}) {
-	*h = append(*h, x.(*Candidate))
+	*h = append(*h, x.(Candidate))
 }
 
 func (h *MinHeap) Pop() interface{} {

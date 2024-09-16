@@ -6,7 +6,7 @@ import (
 	"math"
 )
 
-func TopNCandidates(list []*Candidate, n int) []*Candidate {
+func TopNCandidates(list []Candidate, n int) []Candidate {
 	var (
 		sumContributions           = 0
 		sumFollowers               = 0
@@ -47,9 +47,9 @@ func TopNCandidates(list []*Candidate, n int) []*Candidate {
 		}
 	}
 
-	res := make([]*Candidate, n)
+	res := make([]Candidate, n)
 	for i := range n {
-		res[i] = heap.Pop(h).(*Candidate)
+		res[i] = heap.Pop(h).(Candidate)
 	}
 	return res
 }

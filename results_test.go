@@ -6,7 +6,7 @@ import (
 )
 
 func TestTopNCandidates(t *testing.T) {
-	list := []*Candidate{
+	list := []Candidate{
 		{
 			TotalContributions:      1200,
 			TotalFollowers:          350,
